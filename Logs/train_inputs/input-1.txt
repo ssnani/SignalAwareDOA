@@ -1,0 +1,11 @@
+dataset_dtype stationary 
+dataset_condition noisy_reverb
+noise_simulation point_source
+ref_mic_idx -1
+loss BinaryCrossEntropy
+dataset_file /fs/scratch/PAA0005/Shanmukh/Habets_SignalAware_Doa/Signals/Train_correction/
+val_dataset_file /fs/scratch/PAA0005/Shanmukh/Habets_SignalAware_Doa/Signals/Validation_correction/
+array_type linear
+num_mics 4
+intermic_dist 8
+doa_resolution 5

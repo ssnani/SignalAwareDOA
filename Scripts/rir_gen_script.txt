@@ -1,0 +1,20 @@
+#!/bin/bash 
+#SBATCH --job-name=RIR_GEN
+#SBATCH --nodes=1 --ntasks-per-node=1 --gpus=1
+#SBATCH --constraint=48core
+#SBATCH --time=00:15:00
+#SBATCH --account=PAA0005
+#SBATCH --array=1
+#SBATCH --output=../Logs/rir_gen_%A_%a.log
+echo "job $SLURM_ARRAY_TASK_ID started ...."
+
+
+cd /users/PAS1937/battula12/Shanmukh/Projects/MVTSS/Habets_Signal_Aware_Doa/Scripts/
+source ~/.bashrc
+source activate MvngSpkSep
+module load miniconda3/4.12.0-py39 cuda/11.6.1 cuda
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CONDA_PREFIX/lib/
+
+./run_rirs.sh $SLURM_ARRAY_TASK_ID
+
+echo "job finished!"

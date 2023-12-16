@@ -1,0 +1,38 @@
+Train:
+  room_dim: [[6, 6, 2.7], [5, 4, 2.7], [10, 6, 2.7], [8, 3, 2.7], [8, 5, 2.7]] # m
+  t60: [0.2, 0.3, 0.4, 0.6, 0.8] # sec
+  src_mic_dist: [1, 2]  # m
+  doa_resolution: 5     # degrees
+  min_src_noi_gap: 5    # degrees
+  doa_range: [0, 180]   # degrees (limits)
+
+Validation:
+  room_dim: [[9, 11, 2.7], [10, 10, 2.7], [9, 5, 2.7]]
+  t60: [0.45, 0.6, 0.75]
+  src_mic_dist: [1.2, 2.3]
+  doa_resolution: 5
+  min_src_noi_gap: 5    # degrees
+  doa_range: [0, 180]   # degrees (limits)
+
+Test:
+  room_dim: [[9, 4, 3],[5, 7, 3]]
+  t60: [0.38, 0.7]
+  src_mic_dist: [1.3, 1.7]
+  doa_resolution: 180/179
+
+TestMeasuredRIR:
+  room_dim: [[6,6,2.4]] #m
+  t60: [0.16, 0.36, 0.61] #sec set
+  src_mic_dist: [1, 2]  # m set
+  doa_resolution: 15 #degrees
+  min_src_noi_gap: 5 #degrees
+  doa_range: [0, 180] #degrees
+  SIR: [-6,6] #dB  #range interval
+  SNR: [20,30] #dB White noise #range interval
+  
+
+
+stft:
+  fs: 16000
+  frame_len: 512
+  frame_shift: 256

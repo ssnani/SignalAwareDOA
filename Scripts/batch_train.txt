@@ -1,0 +1,17 @@
+#!/bin/sh 
+#SBATCH --job-name=SignalAwareDOA
+#SBATCH --nodes=1 --ntasks-per-node=1 --cpus-per-task=5 --gpus=1
+#SBATCH --constraint=48core
+#SBATCH --time=08:00:00
+#SBATCH --account=PAA0005
+#SBATCH --array=1
+#SBATCH --output=../Logs/Train_point_source_setup_%A_%a.out
+echo "job started ...."
+cd /users/PAS1937/battula12/Shanmukh/Projects/MVTSS/Habets_Signal_Aware_Doa/Code
+source ~/.bashrc
+module load miniconda3/4.12.0-py39 cuda/11.6.1 cuda
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CONDA_PREFIX/lib/
+
+./run.sh 1 1 ../Logs/train_inputs/input-1.txt
+
+echo "job finished!"
